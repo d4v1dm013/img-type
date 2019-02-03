@@ -1,2 +1,2 @@
 # img-type
-A simple image type detector
+A simple image type detector for nodejs
