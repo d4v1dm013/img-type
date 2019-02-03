@@ -1,0 +1,36 @@
+
+{
+    "name": "img-type",
+    "version": "0.1.0",
+    "description": "A simple image type detector for nodejs",
+    "license": "MIT",
+    "repository": "d4v1dm013/img-type",
+    "author": {
+      "name": "d4v1dm013"
+    },
+    "engines": {
+      "node": ">=8"
+    },
+    "files": [
+      "index.js"
+    ],
+    "keywords": [
+      "png",
+      "jpeg",
+      "gif",
+      "bmp",
+      "image",
+      "img",
+      "pic",
+      "picture",
+      "photo",
+      "type",
+      "detect",
+      "check",
+      "is",
+      "exif",
+      "binary",
+      "buffer",
+      "uint8array"
+    ]
+  }
