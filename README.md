@@ -2,15 +2,15 @@
 A simple image type detector for nodejs
 
 ## Installation
-`npm install @d4v1dm013/img-type`
+`npm install img-type`
 
 ## Usage
 
 ```js
-const imgType = require('@d4v1dm013/img-type');
+const imgType = require('img-type');
 
 imgType.getType(currentFile).then((filetype) => {
-    console.log("IMG TYPE : "+filetype)
+    console.log("IMG TYPE : " + filetype)
 });
 ```
 
