@@ -3,7 +3,8 @@
 const util = require('util');
 const fs = require('fs');
 
-const readFile = util.promisify(fs.readFile);
+const open = util.promisify(fs.open);
+const read = util.promisify(fs.read);
 
 /**
  * get file type from filepath
@@ -12,15 +13,42 @@ const readFile = util.promisify(fs.readFile);
  */
 async function readType(file) {
   
-  const filetype = await readFile(file).then((buffer) => {
+  return await open(file, 'r').then((fd) => {
 
-      return readTypeFromBuffer(buffer);
+    return readBuffer(fd).then((filetype) => {
+        return filetype;
 
-    }).catch((error) => {
-       // Handle the error.
-        console.log(error);
+    }).catch((e) => {
+      // Handle the error.
+      console.log(e);
+      throw e;
+    });
 
-        throw error;
+  }).catch((error) => {
+      // Handle the error.
+      console.log(error);
+      throw error;
+  });
+}
+
+/**
+ * Read buffer of file limited to the specified length bytes (100 default)
+ * @param {integer} fd
+ * @param {integer} length
+ * @return {string}
+ */
+async function readBuffer(fd, length = 100) {
+  
+    var buffer = Buffer.alloc(length);
+
+    let filetype = await read(fd, buffer, 0, length, 0).then((num) => {
+        //console.log(buffer.toString('hex', 0, num));
+        return readTypeFromBuffer(buffer);
+
+    }).catch((e) => {
+      // Handle the error.
+      console.log(e);
+      throw e;
     });
 
     return filetype;
