@@ -33,31 +33,37 @@ async function readType(file) {
  */
 function readTypeFromBuffer(buffer) {
     
-    //Jpeg Img (SOI : Start of Image Hex) = FFD8 (Hex : x0FFD8) 2 bits
+    //Jpeg Img (SOI : Start of Image Hex) = FFD8 (Hex : x0FFD8)
     var SOIMarker = buffer.toString('hex', 0, 2).toUpperCase();
     if(SOIMarker == "FFD8") {
       return 'jpeg';
     }
 
-    // PNG img : Signature Hex = 89504E470D0A1A0A 8 bits
+    // PNG img : Signature Hex = 89504E470D0A1A0A
     var PNGMarker = buffer.toString('hex', 0, 8).toUpperCase();
     if(PNGMarker == "89504E470D0A1A0A") {
       return 'png';
     }
 
-    // GIF img : Signature Hex = GIF89a OR GIF87a 6 bits
+    // GIF img : Signature Hex = GIF89a OR GIF87a
     var GIFMarker = buffer.toString('ascii', 0, 6);
     if(GIFMarker == "GIF89a" || GIFMarker == "GIF87a") {
       return 'gif';
     }
 
-    // BMP img : Signature Hex = 4D42 2 bits
+    // BMP img : Signature Hex = 4D42
     var BPMMarker = buffer.toString('hex', 0, 2).toUpperCase();
     if(BPMMarker == "4D42") {
       return 'bmp';
     }
 
-    throw  new Error('Image type is not supported, only jpeg, png, GIF, BMP');
+    // TIFF img : Signature Hex = 4D4D002A OR 49492A00
+    var TIFFMarker = buffer.toString('hex', 0, 4).toUpperCase();
+    if(TIFFMarker == "4D4D002A" || TIFFMarker == "49492A00") {
+      return 'tiff';
+    }
+
+    throw  new Error('Image type is not supported, only jpeg, png, GIF, BMP, TIFF');
 }
 
 module.exports = {

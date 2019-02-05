@@ -21,3 +21,4 @@ jpeg
 png
 gif
 bmp
+tiff
