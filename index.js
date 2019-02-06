@@ -9,7 +9,7 @@ const read = util.promisify(fs.read);
 /**
  * get file type from filepath
  * @param {string} file
- * @return {string}
+ * @return {string|false}
  */
 async function readType(file) {
   
@@ -35,7 +35,7 @@ async function readType(file) {
  * Read buffer of file limited to the specified length bytes (100 default)
  * @param {integer} fd
  * @param {integer} length
- * @return {string}
+ * @return {string|false}
  */
 async function readBuffer(fd, length = 100) {
   
@@ -57,7 +57,7 @@ async function readBuffer(fd, length = 100) {
 /**
  * get file type from file buffer
  * @param {string} buffer
- * @return {string}
+ * @return {string|false}
  */
 function readTypeFromBuffer(buffer) {
     
@@ -91,7 +91,9 @@ function readTypeFromBuffer(buffer) {
       return 'tiff';
     }
 
-    throw  new Error('Image type is not supported, only jpeg, png, GIF, BMP, TIFF');
+    console.log('Image type is not supported, only jpeg, png, GIF, BMP, TIFF')
+    
+    return false;
 }
 
 module.exports = {

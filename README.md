@@ -26,9 +26,10 @@ var filetype = imgType.getTypeFromBuffer(buffer);
 console.log("IMG TYPE : " + filetype);
 ```
 
-Output should be `IMG TYPE : jpeg`
+For a jpeg file output should be `IMG TYPE : jpeg`
+For a non supported file tyoe output shold be `IMG TYPE : false`
 
-## Extension support
+## Supported file types
 jpeg
 png
 gif
