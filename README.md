@@ -30,11 +30,20 @@ For a jpeg file output should be `IMG TYPE : jpeg`
 For a non supported file tyoe output shold be `IMG TYPE : false`
 
 ## Supported file types
+
+### Basic file types
 jpeg
 png
 gif
 bmp
 tiff
+
+### Raw file types
+cr2
+
+## Comming Soon
+More Supported files
+New functions
 
 ## License
 

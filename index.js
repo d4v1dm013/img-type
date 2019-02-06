@@ -61,33 +61,43 @@ async function readBuffer(fd, length = 100) {
  */
 function readTypeFromBuffer(buffer) {
     
+    let readableBuffer = buffer.toString('hex').toUpperCase();
+    //console.log(readableBuffer)
+
     //Jpeg Img (SOI : Start of Image Hex) = FFD8 (Hex : x0FFD8)
-    var SOIMarker = buffer.toString('hex', 0, 2).toUpperCase();
+    let SOIMarker = readableBuffer.substring(0, 4);
     if(SOIMarker == "FFD8") {
       return 'jpeg';
     }
 
     // PNG img : Signature Hex = 89504E470D0A1A0A
-    var PNGMarker = buffer.toString('hex', 0, 8).toUpperCase();
+    let PNGMarker = readableBuffer.substring(0, 16);
     if(PNGMarker == "89504E470D0A1A0A") {
       return 'png';
     }
 
     // GIF img : Signature Hex = GIF89a OR GIF87a
-    var GIFMarker = buffer.toString('ascii', 0, 6);
+    let GIFMarker = buffer.toString('ascii', 0, 6);
     if(GIFMarker == "GIF89a" || GIFMarker == "GIF87a") {
       return 'gif';
     }
 
     // BMP img : Signature Hex = 4D42
-    var BPMMarker = buffer.toString('hex', 0, 2).toUpperCase();
+    let BPMMarker = readableBuffer.substring(0, 4);
     if(BPMMarker == "4D42") {
       return 'bmp';
     }
 
     // TIFF img : Signature Hex = 4D4D002A OR 49492A00
-    var TIFFMarker = buffer.toString('hex', 0, 4).toUpperCase();
+    let TIFFMarker = readableBuffer.substring(0, 8);
     if(TIFFMarker == "4D4D002A" || TIFFMarker == "49492A00") {
+      
+      //RAW CR2 file : TIFF base
+      let CR2Marker = readableBuffer.substring(16, 20);
+      if(CR2Marker == "4352") {
+        return "cr2";
+      }
+
       return 'tiff';
     }
 

@@ -1,7 +1,7 @@
 
 {
     "name": "img-type",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "A simple image type detector for nodejs",
     "license": "MIT",
     "repository": "d4v1dm013/img-type",
@@ -21,6 +21,8 @@
       "bmp",
       "tif",
       "tiff",
+      "raw",
+      "cr2",
       "image",
       "img",
       "pic",
@@ -31,7 +33,6 @@
       "check",
       "is",
       "exif",
-      "binary",
       "buffer",
       "uint8array"
     ]

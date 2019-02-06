@@ -1,4 +1,6 @@
 *.ARW
 *.CR2
+*.jpg
+*.png
 test.js
 todo.txt
