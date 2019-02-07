@@ -27,6 +27,7 @@ console.log("IMG TYPE : " + filetype);
 ```
 
 For a jpeg file output should be `IMG TYPE : jpeg`
+
 For a non supported file tyoe output shold be `IMG TYPE : false`
 
 ## Supported file types
@@ -40,9 +41,11 @@ tiff
 
 ### Raw file types
 cr2
+arw
 
 ## Comming Soon
 More Supported files
+
 New functions
 
 ## License

@@ -98,9 +98,17 @@ function readTypeFromBuffer(buffer) {
         return "cr2";
       }
 
+      //RAW ARW file : TIFF base (Sony)
+      let ARWMarker = readableBuffer.substring(20, 26);
+      if(ARWMarker == "FE0004") {
+        return "arw";
+      }
+
+      //console.log(ARWMarker);
+
       return 'tiff';
     }
-
+  
     console.log('Image type is not supported, only jpeg, png, GIF, BMP, TIFF')
     
     return false;
