@@ -88,6 +88,12 @@ function readTypeFromBuffer(buffer) {
       return 'bmp';
     }
 
+    //SVG
+    let SVGMarker = readableBuffer.substring(0, 10);
+    if(SVGMarker == "3C3F786D6C") {
+      return 'svg';
+    }
+
     // TIFF img : Signature Hex = 4D4D002A OR 49492A00
     let TIFFMarker = readableBuffer.substring(0, 8);
     if(TIFFMarker == "4D4D002A" || TIFFMarker == "49492A00") {

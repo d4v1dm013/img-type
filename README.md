@@ -38,6 +38,7 @@ png
 gif  
 bmp  
 tiff  
+svg  
 
 ### Raw file types
 cr2  
