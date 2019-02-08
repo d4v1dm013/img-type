@@ -62,7 +62,7 @@ async function readBuffer(fd, length = 100) {
 function readTypeFromBuffer(buffer) {
     
     let readableBuffer = buffer.toString('hex').toUpperCase();
-    console.log(readableBuffer)
+    //console.log(readableBuffer)
 
     //Jpeg Img (SOI : Start of Image Hex) = FFD8 (Hex : x0FFD8)
     let SOIMarker = readableBuffer.substring(0, 4);
@@ -99,9 +99,27 @@ function readTypeFromBuffer(buffer) {
       }
 
       //RAW ARW file : TIFF base (Sony)
-      let ARWMarker = readableBuffer.substring(20, 26);
-      if(ARWMarker == "FE0004") {
+      let ARWMarker = readableBuffer.substring(0, 17);
+      if(ARWMarker == "49492A00080000001") {
         return "arw";
+      }
+
+      //RAW DNG file : TIFF base (Canon / Leica)
+      let DNGMarker = readableBuffer.substring(0, 17);
+      if(DNGMarker == "49492A00080000002") {
+        return "dng";
+      }
+
+      //RAW DNG file : TIFF base (PENTAX / SAMSUNG)
+      let DNGMarker2 = readableBuffer.substring(0, 19);
+      if(DNGMarker2 == "4D4D002A00000008002") {
+        return "dng";
+      }
+
+      //RAW DNG file : TIFF base (LEICA)
+      let DNGMarker3 = readableBuffer.substring(0, 17);
+      if(DNGMarker3 == "4D4D002A0000000C0") {
+        return "dng";
       }
 
       //console.log(ARWMarker);
@@ -120,7 +138,7 @@ function readTypeFromBuffer(buffer) {
       }
     }
   
-    console.log('Image type is not supported, only jpeg, png, GIF, BMP, TIFF')
+    console.log('Image type is not supported, only jpeg, png, GIF, BMP, TIFF and RAW (arw, cr2, dng, crw)')
     
     return false;
 }

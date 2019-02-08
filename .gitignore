@@ -3,5 +3,7 @@
 *.jpg
 *.png
 *.CRW
+*.DNG
+*.RAW
 test.js
 todo.txt

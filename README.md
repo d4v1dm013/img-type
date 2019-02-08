@@ -43,6 +43,7 @@ tiff
 cr2  
 arw  
 crw  
+dng  
 
 ## Comming Soon
 More Supported files
