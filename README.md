@@ -28,20 +28,21 @@ console.log("IMG TYPE : " + filetype);
 
 For a jpeg file output should be `IMG TYPE : jpeg`
 
-For a non supported file tyoe output shold be `IMG TYPE : false`
+For a non supported file type output should be `IMG TYPE : false`
 
 ## Supported file types
 
 ### Basic file types
-jpeg
-png
-gif
-bmp
-tiff
+jpeg  
+png  
+gif  
+bmp  
+tiff  
 
 ### Raw file types
-cr2
-arw
+cr2  
+arw  
+crw  
 
 ## Comming Soon
 More Supported files

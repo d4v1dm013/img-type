@@ -62,7 +62,7 @@ async function readBuffer(fd, length = 100) {
 function readTypeFromBuffer(buffer) {
     
     let readableBuffer = buffer.toString('hex').toUpperCase();
-    //console.log(readableBuffer)
+    console.log(readableBuffer)
 
     //Jpeg Img (SOI : Start of Image Hex) = FFD8 (Hex : x0FFD8)
     let SOIMarker = readableBuffer.substring(0, 4);
@@ -92,7 +92,7 @@ function readTypeFromBuffer(buffer) {
     let TIFFMarker = readableBuffer.substring(0, 8);
     if(TIFFMarker == "4D4D002A" || TIFFMarker == "49492A00") {
       
-      //RAW CR2 file : TIFF base
+      //RAW CR2 file : TIFF base (Canon)
       let CR2Marker = readableBuffer.substring(16, 20);
       if(CR2Marker == "4352") {
         return "cr2";
@@ -107,6 +107,17 @@ function readTypeFromBuffer(buffer) {
       //console.log(ARWMarker);
 
       return 'tiff';
+    }
+
+    // CIFF img : Signature Hex = 49491A
+    let CIFFMarker = readableBuffer.substring(0, 6);
+    if(CIFFMarker == "49491A") {
+      
+      //RAW CRW file : CIFF base (Canon)
+      let CRWMarker = readableBuffer.substring(12, 16);
+      if(CRWMarker == "4845") {
+        return "crw";
+      }
     }
   
     console.log('Image type is not supported, only jpeg, png, GIF, BMP, TIFF')

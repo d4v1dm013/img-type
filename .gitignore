@@ -2,5 +2,6 @@
 *.CR2
 *.jpg
 *.png
+*.CRW
 test.js
 todo.txt
