@@ -6,5 +6,6 @@
 *.DNG
 *.RAW
 *.svg
+*.webp
 test.js
 todo.txt

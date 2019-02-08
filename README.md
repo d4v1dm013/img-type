@@ -1,6 +1,8 @@
 # img-type
 A simple image type detector for nodejs
 
+[![Build Status](https://travis-ci.org/d4v1dm013/img-type.svg?branch=master)](https://travis-ci.org/d4v1dm013/img-type)
+
 ## Installation
 `npm install img-type`
 
@@ -39,6 +41,7 @@ gif
 bmp  
 tiff  
 svg  
+webp  
 
 ### Raw file types
 cr2  

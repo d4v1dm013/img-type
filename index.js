@@ -94,6 +94,12 @@ function readTypeFromBuffer(buffer) {
       return 'svg';
     }
 
+    let WEBPMarker = readableBuffer.substring(0, 8);
+    let WEBPMarker2 = readableBuffer.substring(16, 30);
+    if(WEBPMarker == "52494646" && WEBPMarker2 == "57454250565038") {
+      return 'webp';
+    }
+
     // TIFF img : Signature Hex = 4D4D002A OR 49492A00
     let TIFFMarker = readableBuffer.substring(0, 8);
     if(TIFFMarker == "4D4D002A" || TIFFMarker == "49492A00") {
