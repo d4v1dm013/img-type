@@ -1,7 +1,7 @@
 
 {
     "name": "img-type",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "description": "A simple image type detector for nodejs",
     "license": "MIT",
     "repository": "d4v1dm013/img-type",
@@ -26,6 +26,12 @@
       "arw",
       "crw",
       "dng",
+      "isJpeg",
+      "isPng",
+      "isGif",
+      "isSvg",
+      "isWebp",
+      "isBmp",
       "image",
       "img",
       "pic",

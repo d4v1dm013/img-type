@@ -155,6 +155,117 @@ function readTypeFromBuffer(buffer) {
     return false;
 }
 
+
+/**
+ * check if file is a PNG
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isPng(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(filetype == "png") {
+      return true
+    }
+    else return false
+
+  }).catch(error => {
+    return false
+  });
+}
+
+/**
+ * check if file is a Jpeg
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isJpeg(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(filetype == "jpeg") {
+      return true
+    }
+    else return false
+
+  }).catch(error => {
+    return false
+  });
+}
+
+/**
+ * check if file is a Gif
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isGif(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(filetype == "gif") {
+      return true
+    }
+    else return false
+
+  }).catch(error => {
+    return false
+  });
+}
+
+
+/**
+ * check if file is a bmp
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isBmp(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(filetype == "bmp") {
+      return true
+    }
+    else return false
+
+  }).catch(error => {
+    return false
+  });
+}
+
+
+/**
+ * check if file is a svg
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isSvg(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(filetype == "svg") {
+      return true
+    }
+    else return false
+
+  }).catch(error => {
+    return false
+  });
+}
+
+/**
+ * check if file is a webp
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isWebp(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(filetype == "webp") {
+      return true
+    }
+    else return false
+
+  }).catch(error => {
+    return false
+  });
+}
+
 module.exports = {
   getType: function(file) {
     return readType(file);
@@ -162,5 +273,29 @@ module.exports = {
 
   getTypeFromBuffer: function(buffer) {
     return readTypeFromBuffer(buffer);
-  }
+  },
+  
+  isPng: function(file) {
+    return isPng(file);
+  },
+
+  isJpeg: function(file) {
+    return isJpeg(file);
+  },
+
+  isGif: function(file) {
+    return isGif(file);
+  },
+
+  isBmp: function(file) {
+    return isBmp(file);
+  },
+
+  isSvg: function(file) {
+    return isSvg(file);
+  },
+
+  isWebp: function(file) {
+    return isWebp(file);
+  },
 };

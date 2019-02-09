@@ -1,5 +1,5 @@
 # img-type
-A simple image type detector for nodejs
+A simple image type detector for nodejs, you can also test the type of file like isJpeg or isPng
 
 [![Build Status](https://travis-ci.org/d4v1dm013/img-type.svg?branch=master)](https://travis-ci.org/d4v1dm013/img-type)
 
@@ -31,6 +31,29 @@ console.log("IMG TYPE : " + filetype);
 For a jpeg file output should be `IMG TYPE : jpeg`
 
 For a non supported file type output should be `IMG TYPE : false`
+
+##### Node.js file test by type
+```js
+const imgType = require('img-type');
+
+//Exemple : currentFileJpeg = ./test.jpg
+imgType.isJpeg(currentFileJpeg).then((isJpeg) => {
+    console.log("IS JPEG : " + isJpeg)
+});
+```
+For a jpeg file output should be `IS JPEG : true`
+
+For all other file output should be `IS JPEG : false`
+
+## Functions availables
+getType()  
+geTypeFromBuffer()  
+isJpeg()  
+isPng()  
+isGif()  
+isBmp()  
+isSvg()  
+isWebp() 
 
 ## Supported file types
 
