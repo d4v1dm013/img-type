@@ -53,6 +53,7 @@ isGif()
 isBmp()  
 isSvg()  
 isWebp() 
+isImg() 
 
 ## Supported file types
 
