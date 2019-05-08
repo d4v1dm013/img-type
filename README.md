@@ -22,7 +22,6 @@ imgType.getType(currentFile).then((filetype) => {
 const imgType = require('img-type');
 
 //some code to get a buffer fs.readFile or read-chunk for exemple
-
 var filetype = imgType.getTypeFromBuffer(buffer);
 
 console.log("IMG TYPE : " + filetype);

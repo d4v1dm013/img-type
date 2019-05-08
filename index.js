@@ -266,6 +266,25 @@ function isWebp(filepath) {
   });
 }
 
+/**
+ * check if file is a valid image
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isImg(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    if(!filetype) {
+      return true
+    }
+    
+    return true
+
+  }).catch(error => {
+    return false
+  });
+}
+
 module.exports = {
   getType: function(file) {
     return readType(file);
@@ -297,5 +316,9 @@ module.exports = {
 
   isWebp: function(file) {
     return isWebp(file);
+  },
+
+  isImg: function(file) {
+    return isImg(file);
   },
 };
