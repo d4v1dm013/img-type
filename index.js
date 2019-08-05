@@ -275,7 +275,7 @@ function isImg(filepath) {
     
   return readType(filepath).then((filetype) => {
     if(!filetype) {
-      return true
+      return false
     }
     
     return true
