@@ -54,6 +54,7 @@ isBmp()
 isSvg()  
 isWebp() 
 isImg() 
+isRaw()
 
 ## Supported file types
 

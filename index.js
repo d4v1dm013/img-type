@@ -267,6 +267,33 @@ function isWebp(filepath) {
 }
 
 /**
+ * check if file is a raw image
+ * @param {string} filepath
+ * @return {boolean}
+ */
+function isRaw(filepath) {
+    
+  return readType(filepath).then((filetype) => {
+    
+    switch(filetype) {
+      case "cr2":
+        return true
+      case "crw":
+        return true
+      case "arw":
+          return true
+      case "dng":
+          return true
+      default:
+        return false
+    } 
+
+  }).catch(error => {
+    return false
+  });
+}
+
+/**
  * check if file is a valid image
  * @param {string} filepath
  * @return {boolean}
@@ -320,5 +347,9 @@ module.exports = {
 
   isImg: function(file) {
     return isImg(file);
+  },
+
+  isRaw: function(file) {
+    return isRaw(file);
   },
 };
