@@ -16,7 +16,14 @@ async function readType(file) {
   return await open(file, 'r').then((fd) => {
 
     return readBuffer(fd).then((filetype) => {
-        return filetype;
+        
+      fs.close(fd, function(error) {
+        if (error) {
+             console.error("close error:  " + error.message);
+        }
+      });
+      
+      return filetype;
 
     }).catch((e) => {
       // Handle the error.
